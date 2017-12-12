@@ -1,0 +1,31 @@
+.tab-scroller{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  width:100%;
+  max-height:50px;
+}
+.tab-container{
+  max-width:50%;
+  overflow:hidden;
+}
+.tab-scroller i {
+  padding: 15px;
+  font-size:20px;
+  cursor:pointer;
+}
+.tab-scroller .prev{
+  visibility:hidden;
+}
+.tab-scroller .tab-container ul{
+  display:flex;
+  width: max-content;
+  padding: 0;
+}
+.tab-scroller .tab-container li{
+  display:flex;
+  margin-right:10px;
+}
+.tab-scroller .tab-container li:last-child{
+  margin-right:0;
+}
