@@ -2,7 +2,7 @@
  * Name:        jQuery Tab Scroller
  * Description: A tab scroller using jQuery
  * @package     Chimera Apps
- * @version     1.0.2
+ * @version     1.0.3
  * @author      Chimera.Zen
  * @copyright   Copyright (c) 2017, Chimera.Zen
  * @link        https://github.com/ChimeraZen/Chimera-Core-JS
@@ -14,13 +14,14 @@ var scroll_distance = 275,    // Distance .tab-container should scroll when <i> 
 
 /** Load the scroller details **/
 function get_scroll_details(scroller) {
-  var tab_true_width 	= Math.round(scroller.siblings('.tab-container').children('ul').width()),
+  "use strict";
+  var tab_true_width  = Math.round(scroller.siblings('.tab-container').children('ul').width()),
       container_width = Math.round(scroller.siblings('.tab-container').width()),
-      left_scrolled 	= Math.round(scroller.siblings('.tab-container').scrollLeft()),
+      left_scrolled   = Math.round(scroller.siblings('.tab-container').scrollLeft()),
       scrolls = {
-           "distance" : tab_true_width - container_width,
-       "leftscrolled" : left_scrolled,
-          "remaining" : tab_true_width - container_width - left_scrolled,
+        "distance" : tab_true_width - container_width,
+        "leftscrolled" : left_scrolled,
+        "remaining" : tab_true_width - container_width - left_scrolled,
         "scroll_next" : scroller.parent().children('.scroller.next'),
         "scroll_prev" : scroller.parent().children('.scroller.prev')
       };
@@ -29,6 +30,7 @@ function get_scroll_details(scroller) {
 
 /** Tab Scroller **/
 function tab_switch(scroller) {
+  "use strict";
   var scrolls = get_scroll_details(scroller);
   if (scrolls.leftscrolled === 0) {
     scrolls.scroll_next.css("visibility", "visible");
@@ -44,6 +46,7 @@ function tab_switch(scroller) {
 
 /** Animate and check if <i> visibility needs to switch **/
 function scroll_it(scroller, scroll) {
+  "use strict";
   scroller.siblings('.tab-container').animate({scrollLeft: scroll}, animate_speed, function () {
     tab_switch(scroller);
   });
@@ -51,8 +54,9 @@ function scroll_it(scroller, scroll) {
 
 /** Animate & Scroll on Click **/
 $('.scroller.next').click(function () {
-  var scroller = $(this),
-      scrolls  = get_scroll_details(scroller);
+  "use strict";
+  var scroller  = $(this),
+      scrolls   = get_scroll_details(scroller);
   if (scrolls.remaining >= scroll_distance) {
     scroll_it(scroller, scrolls.leftscrolled + scroll_distance);
   } else {
@@ -61,8 +65,9 @@ $('.scroller.next').click(function () {
 });
 
 $('.scroller.prev').click(function () {
-  var scroller = $(this),
-      scrolls  = get_scroll_details(scroller);
+  "use strict";
+  var scroller  = $(this),
+      scrolls   = get_scroll_details(scroller);
   if (scrolls.leftscrolled !== 0) {
     scroll_it(scroller, scrolls.leftscrolled - scroll_distance);
   } else {
