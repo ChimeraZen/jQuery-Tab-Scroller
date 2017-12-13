@@ -2,7 +2,7 @@
  * Name:        jQuery Tab Scroller
  * Description: A tab scroller using jQuery
  * @package     Chimera Apps
- * @version     1.0.3
+ * @version     1.0.4
  * @author      Chimera.Zen
  * @copyright   Copyright (c) 2017, Chimera.Zen
  * @link        https://github.com/ChimeraZen/Chimera-Core-JS
