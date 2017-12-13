@@ -20,7 +20,7 @@ function get_scroll_details(scroller) {
       left_scrolled   = Math.round(scroller.siblings('.tab-container').scrollLeft()),
       scrolls = {
         "distance" : tab_true_width - container_width,
-        "leftscrolled" : left_scrolled,
+        "left_scrolled" : left_scrolled,
         "remaining" : tab_true_width - container_width - left_scrolled,
         "scroll_next" : scroller.parent().children('.scroller.next'),
         "scroll_prev" : scroller.parent().children('.scroller.prev')
@@ -58,9 +58,9 @@ $('.scroller.next').click(function () {
   var scroller  = $(this),
       scrolls   = get_scroll_details(scroller);
   if (scrolls.remaining >= scroll_distance) {
-    scroll_it(scroller, scrolls.leftscrolled + scroll_distance);
+    scroll_it(scroller, scrolls.left_scrolled + scroll_distance);
   } else {
-    scroll_it(scroller, scrolls.leftscrolled + scrolls.remaining);
+    scroll_it(scroller, scrolls.left_scrolled + scrolls.remaining);
   }
 });
 
@@ -69,7 +69,7 @@ $('.scroller.prev').click(function () {
   var scroller  = $(this),
       scrolls   = get_scroll_details(scroller);
   if (scrolls.leftscrolled !== 0) {
-    scroll_it(scroller, scrolls.leftscrolled - scroll_distance);
+    scroll_it(scroller, scrolls.left_scrolled - scroll_distance);
   } else {
     scroll_it(scroller, 0);
   }
