@@ -1,15 +1,15 @@
 /**
- * Name:        jQuery Tab Scroller
- * Description: A tab scroller using jQuery
- * @package     Chimera Apps
- * @version     1.1.0
- * @author      Chimera.Zen
- * @copyright   Copyright (c) 2017, Chimera.Zen
- * @link        https://github.com/ChimeraZen
- * @license     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- */
-
+* Name:        jQuery Tab Scroller
+* Description: A tab scroller using jQuery
+* @package     Chimera Apps
+* @version     1.1.1
+* @author      Chimera.Zen
+* @copyright   Copyright (c) 2017, Chimera.Zen
+* @link        https://github.com/ChimeraZen
+* @license     http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+*/
 'use strict';
+
 var scroll_distance = 275,    // Distance .tab-container should scroll when <i> is clicked
     animate_speed   = 400;    // Speed at which .tab-container should animate the scroll
 
@@ -30,7 +30,7 @@ function get_scroll_details(scroller) {
 
 /** Tab Scroller **/
 function toggle_class(scroller) {
-  var scrolls     = get_scroll_details(scroller),
+  var scrolls      = get_scroll_details(scroller),
       next_visible = scrolls.leftscrolled === 0 || scrolls.remaining !== 0,
       prev_visible = scrolls.remaining === 0 || scrolls.left_scrolled !== 0;
   scrolls.scroll_next.toggleClass('visible', next_visible).toggleClass('hidden', !next_visible);
